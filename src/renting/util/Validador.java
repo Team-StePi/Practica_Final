@@ -82,4 +82,26 @@ public class Validador {
         }
         return numero;
     }
+
+    public int validarOpcionMenu(Scanner sc, int min, int max) {
+        /**
+         * Validar que la opción seleccionada esté dentro del rango de opciones disponibles
+         */
+
+        int opcion;
+        try {
+            opcion = sc.nextInt();
+        } catch (Exception e) {
+            System.out.println("Entrada inválida. Por favor, ingrese un número entero.");
+            sc.nextLine(); // Limpiar el buffer de entrada
+            return validarOpcionMenu(sc, min, max);
+        }
+        if (opcion < min || opcion > max) {
+            System.out.println("Opción no válida. Por favor, seleccione una opción válida.");
+            return validarOpcionMenu(sc, min, max);
+        }
+        sc.nextLine(); // Limpiar el buffer de entrada
+
+        return opcion;
+    }
 }
