@@ -41,4 +41,25 @@ public class Validador {
         }
         return texto;
     }
+
+    public int validarEntero(Scanner sc) {
+        /**
+         * Validar que el número sea positivo (mayor que cero)
+         */
+
+        int numero;
+        try {
+            numero = sc.nextInt();
+        } catch (Exception e) {
+            System.out.println("Entrada inválida. Por favor, ingrese un número entero.");
+            sc.nextLine(); // Limpiar el buffer de entrada
+            return validarEntero(sc);
+        }
+        if (numero <= 0) {
+            System.out.println("El número debe ser positivo (mayor que cero). Por favor, intente de nuevo.");
+            return validarEntero(sc);
+        }
+
+        return numero;
+    }
 }
