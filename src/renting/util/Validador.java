@@ -62,4 +62,24 @@ public class Validador {
 
         return numero;
     }
+
+    public float validarDecimal(Scanner sc) {
+        /**
+         * Validar que el número sea positivo (mayor que cero)
+         */
+
+        float numero;
+        try {
+            numero = sc.nextFloat();
+        } catch (Exception e) {
+            System.out.println("Entrada inválida. Por favor, ingrese un número decimal.");
+            sc.nextLine(); // Limpiar el buffer de entrada
+            return validarDecimal(sc);
+        }
+        if (numero <= 0) {
+            System.out.println("El número debe ser positivo (mayor que cero). Por favor, intente de nuevo.");
+            return validarDecimal(sc);
+        }
+        return numero;
+    }
 }
