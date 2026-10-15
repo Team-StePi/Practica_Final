@@ -5,19 +5,19 @@ public class CamionetaSUV extends Vehiculo {
         _4x4
     }
     private TipoTraccion Traccion;
-    private Double CapacidadMaletero;
+    private float CapacidadMaletero;
 
     public CamionetaSUV() {
     }
 
     public CamionetaSUV(String placa, String marca, int modelo, Double precioDiario, Vehiculo.EstadoVehiculo estado,
-            CamionetaSUV.TipoTraccion traccion, Double capacidadMaletero) {
+            CamionetaSUV.TipoTraccion traccion, float capacidadMaletero) {
         super(placa, marca, modelo, precioDiario, estado);
         Traccion = traccion;
         CapacidadMaletero = capacidadMaletero;
     }
 
-    public CamionetaSUV(CamionetaSUV.TipoTraccion traccion, Double capacidadMaletero) {
+    public CamionetaSUV(CamionetaSUV.TipoTraccion traccion, float capacidadMaletero) {
         Traccion = traccion;
         CapacidadMaletero = capacidadMaletero;
     }
@@ -30,11 +30,11 @@ public class CamionetaSUV extends Vehiculo {
         Traccion = traccion;
     }
 
-    public Double getCapacidadMaletero() {
+    public float getCapacidadMaletero() {
         return CapacidadMaletero;
     }
 
-    public void setCapacidadMaletero(Double capacidadMaletero) {
+    public void setCapacidadMaletero(float capacidadMaletero) {
         CapacidadMaletero = capacidadMaletero;
     }
 
