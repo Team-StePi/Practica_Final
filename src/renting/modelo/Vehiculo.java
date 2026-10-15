@@ -2,7 +2,7 @@ public class Vehiculo {
     private String Placa;
     private String Marca;
     private int Modelo;
-    private Double PrecioDiario;
+    private float PrecioDiario;
     private EstadoVehiculo Estado;
     
     public enum EstadoVehiculo {
@@ -10,7 +10,7 @@ public class Vehiculo {
         ALQUILADO
     }
 
-    public Vehiculo(String placa, String marca, int modelo, Double precioDiario, EstadoVehiculo estado) {
+    public Vehiculo(String placa, String marca, int modelo, float precioDiario, EstadoVehiculo estado) {
         Placa = placa;
         Marca = marca;
         Modelo = modelo;
@@ -41,11 +41,11 @@ public class Vehiculo {
         Modelo = modelo;
     }
 
-    public Double getPrecioDiario() {
+    public float getPrecioDiario() {
         return PrecioDiario;
     }
 
-    public void setPrecioDiario(Double precioDiario) {
+    public void setPrecioDiario(float precioDiario) {
         PrecioDiario = precioDiario;
     }
 

@@ -10,7 +10,7 @@ public class CamionetaSUV extends Vehiculo {
     public CamionetaSUV() {
     }
 
-    public CamionetaSUV(String placa, String marca, int modelo, Double precioDiario, Vehiculo.EstadoVehiculo estado,
+    public CamionetaSUV(String placa, String marca, int modelo, float precioDiario, Vehiculo.EstadoVehiculo estado,
             CamionetaSUV.TipoTraccion traccion, float capacidadMaletero) {
         super(placa, marca, modelo, precioDiario, estado);
         Traccion = traccion;
