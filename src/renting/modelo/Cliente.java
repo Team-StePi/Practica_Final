@@ -1,3 +1,4 @@
+package src.renting.modelo;
 public class Cliente {
     private String Cedula;
     private String Nombre;
@@ -20,10 +21,6 @@ public class Cliente {
 
     public String getCedula() {
         return Cedula;
-    }
-
-    public void setCedula(String cedula) {
-        Cedula = cedula;
     }
 
     public String getNombre() {
