@@ -72,7 +72,7 @@ public class MenuPrincipal {
             System.out.println("4. Buscar cliente");
             System.out.println("5. Volver al menú principal");
 
-            int opcion = Validador.validarOpcionMenu(sc);
+            int opcion = Validador.validarOpcionMenu(sc, 1,5);
 
             switch (opcion) {
                 case 1:
@@ -108,7 +108,7 @@ public class MenuPrincipal {
             System.out.println("4. Buscar vehículo");
             System.out.println("5. Volver al menú principal");
 
-            int opcion = Validador.validarOpcionMenu(sc);
+            int opcion = Validador.validarOpcionMenu(sc, 1, 5);
 
             switch (opcion) {
                 case 1:
@@ -144,7 +144,7 @@ public class MenuPrincipal {
             System.out.println("4. Buscar contrato");
             System.out.println("5. Volver al menú principal");
 
-            int opcion = Validador.validarOpcionMenu(sc);
+            int opcion = Validador.validarOpcionMenu(sc, 1, 5);
 
             switch (opcion) {
                 case 1:
