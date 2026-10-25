@@ -1,11 +1,11 @@
-package src.renting.modelo;
+package renting.modelo;
 public class Cliente {
     private String Cedula;
     private String Nombre;
     private String Apellido;
     private String Telefono;
     private String Direccion;
-    private String Licencia;
+    private String LicenciaConduccion;
 
     public Cliente(String cedula, String nombre, String apellido, String telefono, String direccion, String licencia) {
         Cedula = cedula;
@@ -13,7 +13,7 @@ public class Cliente {
         Apellido = apellido;
         Telefono = telefono;
         Direccion = direccion;
-        Licencia = licencia;
+        LicenciaConduccion = licencia;
     }
 
     public Cliente() {
@@ -55,12 +55,12 @@ public class Cliente {
         Direccion = direccion;
     }
 
-    public String getLicencia() {
-        return Licencia;
+    public String getLicenciaConduccion() {
+        return LicenciaConduccion;
     }
 
-    public void setLicencia(String licencia) {
-        Licencia = licencia;
+    public void setLicenciaConduccion(String licenciaConduccion) {
+        LicenciaConduccion = licenciaConduccion;
     }
 
 }
