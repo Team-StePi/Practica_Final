@@ -17,11 +17,10 @@ public class MenuPrincipal {
     public MenuPrincipal() {
         this.clienteService = new ClienteService();
         this.vehiculoService = new VehiculoService();
-        this.contratoService = new ContratoService();
+        this.contratoService = new ContratoService(clienteService, vehiculoService);
         this.informeService = new InformeService();
     }
 
-    // (HU5) Inicia el ciclo del menú principal
     public String mostrarMenu() {
         boolean bandera = false;
         while (!bandera) {
@@ -35,23 +34,24 @@ public class MenuPrincipal {
             System.out.println("5. SALIR DEL SISTEMA");
             System.out.println("==============================================");
 
-            int opcion = Validador.validarOpcionMenu(sc);
+            int opcion = Validador.validarOpcionMenu(sc, 1, 5);
 
             switch (opcion) {
                 case 1:
-                    gestionarClientes();
+                    System.out.println(gestionarClientes());
                     break;
                 case 2:
-                    gestionarVehiculos();
+                    System.out.println(gestionarVehiculos());
                     break;
                 case 3:
-                    gestionarContratos();
+                    System.out.println(gestionarContratos());
                     break;
                 case 4:
-                    imprimirInforme();
+                    System.out.println(imprimirInforme());
                     break;
                 case 5:
                     bandera = true;
+                    sc.close();
                     System.out.println("\nGracias por usar el Sistema de Renting. ¡Hasta pronto!");
                     break;
                 default:
@@ -61,7 +61,6 @@ public class MenuPrincipal {
         return "Menu mostrado";
     }
 
-    //1. GESTIÓN DE CLIENTES
     public String gestionarClientes() {
         boolean volver = false;
         while (!volver) {
@@ -72,20 +71,20 @@ public class MenuPrincipal {
             System.out.println("4. Buscar cliente");
             System.out.println("5. Volver al menú principal");
 
-            int opcion = Validador.validarOpcionMenu(sc, 1,5);
+            int opcion = Validador.validarOpcionMenu(sc, 1, 5);
 
             switch (opcion) {
                 case 1:
-                    clienteService.registrarCliente();
+                    System.out.println(clienteService.registrarCliente());
                     break;
                 case 2:
-                    clienteService.modificarCliente();
+                    System.out.println(clienteService.modificarCliente());
                     break;
                 case 3:
-                    clienteService.eliminarCliente();
+                    System.out.println(clienteService.eliminarCliente());
                     break;
                 case 4:
-                    clienteService.buscarCliente();
+                    System.out.println(clienteService.buscarCliente());
                     break;
                 case 5:
                     volver = true;
@@ -97,7 +96,6 @@ public class MenuPrincipal {
         return "Gestión de clientes completada";
     }
 
-    //2. GESTIÓN DE VEHÍCULOS
     public String gestionarVehiculos() {
         boolean volver = false;
         while (!volver) {
@@ -112,16 +110,16 @@ public class MenuPrincipal {
 
             switch (opcion) {
                 case 1:
-                    vehiculoService.registrarVehiculo();
+                    System.out.println(vehiculoService.registrarVehiculo());
                     break;
                 case 2:
-                    vehiculoService.modificarVehiculo();
+                    System.out.println(vehiculoService.modificarVehiculo());
                     break;
                 case 3:
-                    vehiculoService.eliminarVehiculo();
+                    System.out.println(vehiculoService.eliminarVehiculo());
                     break;
                 case 4:
-                    vehiculoService.buscarVehiculo();
+                    System.out.println(vehiculoService.buscarVehiculo());
                     break;
                 case 5:
                     volver = true;
@@ -133,7 +131,6 @@ public class MenuPrincipal {
         return "Gestión de vehículos completada";
     }
 
-    //3. GESTIÓN DE CONTRATOS
     public String gestionarContratos() {
         boolean volver = false;
         while (!volver) {
@@ -148,16 +145,16 @@ public class MenuPrincipal {
 
             switch (opcion) {
                 case 1:
-                    contratoService.registrarContrato();
+                    System.out.println(contratoService.registrarContrato());
                     break;
                 case 2:
-                    contratoService.modificarContrato();
+                    System.out.println(contratoService.modificarContrato());
                     break;
                 case 3:
-                    contratoService.finalizarContrato();
+                    System.out.println(contratoService.devolverContrato());
                     break;
                 case 4:
-                    contratoService.buscarContrato();
+                    System.out.println(contratoService.buscarContrato());
                     break;
                 case 5:
                     volver = true;
@@ -169,10 +166,8 @@ public class MenuPrincipal {
         return "Gestión de contratos completada";
     }
 
-    //4. IMPRIMIR INFORME GENERAL
-    public String imprimirInforme(){
-        informeService.imprimirInformeGeneral();
+    public String imprimirInforme() {
+        System.out.println(informeService.imprimirInformeGeneral());
         return "Informe general impreso";
     }
-
 }
