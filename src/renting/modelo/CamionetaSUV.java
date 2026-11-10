@@ -1,3 +1,4 @@
+package renting.modelo;
 public class CamionetaSUV extends Vehiculo {
 
     public enum TipoTraccion {

@@ -1,3 +1,4 @@
+package renting.modelo;
 public class Vehiculo {
     private String Placa;
     private String Marca;

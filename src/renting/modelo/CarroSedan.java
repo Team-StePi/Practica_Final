@@ -1,3 +1,4 @@
+package renting.modelo;
 public class CarroSedan extends Vehiculo{
 
     public enum Combustible {
