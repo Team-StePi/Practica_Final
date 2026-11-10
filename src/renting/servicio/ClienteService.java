@@ -1,6 +1,6 @@
 package renting.servicio;
 import renting.modelo.Cliente;
-import renting.modelo.Validador;
+import renting.util.Validador;
 import java.util.Scanner;
 
 public class ClienteService {
