@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ContratoService {
-
+    
     private static final DateTimeFormatter FORMATO_FECHA = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
     private Scanner sc = new Scanner(System.in);
@@ -33,8 +33,10 @@ public class ContratoService {
     }
 
     public String registrarContrato() {
+        Validador v = new Validador(); // PA
         System.out.print("Ingrese el ID del contrato: ");
-        String idContrato = Validador.validarTexto(sc, 1);
+        //String idContrato = Validador.validarTexto(sc, 1);
+        String idContrato = v.validarTexto(sc, 1); // PA
 
         for (ContratoRenting c : contratos) {
             if (c.getIdContrato().equalsIgnoreCase(idContrato)) {
@@ -53,7 +55,8 @@ public class ContratoService {
         }
 
         System.out.println("--- BÚSQUEDA Y ASIGNACIÓN DE VEHÍCULO ---");
-        Vehiculo vehiculo = vehiculoService.buscarVehiculo();
+        //Vehiculo vehiculo = vehiculoService.buscarVehiculo();
+        Vehiculo vehiculo = vehiculoService.buscarVehiculo(sc); // PA
         if (vehiculo == null) {
             return "Error: El vehículo ingresado no existe en el inventario.";
         }
@@ -144,7 +147,7 @@ public class ContratoService {
 
         contrato.setEstado("Finalizado");
 
-        if (vehiculoService != null && vehiculoService.getVehiculos() != null) {
+        if (vehiculoService != null && vehiculoService.getVehiculo() != null) {
             for (Vehiculo v : vehiculoService.getVehiculos()) {
                 if (v.getPlaca().equalsIgnoreCase(contrato.getPlacaVehiculo())) {
                     v.setEstado(Vehiculo.EstadoVehiculo.DISPONIBLE);
@@ -158,8 +161,10 @@ public class ContratoService {
 
     // Nombre de método exacto del UML: buscarContrato(): ContratoRenting
     public ContratoRenting buscarContrato() {
+        Validador v = new Validador(); // PA
         System.out.print("Ingrese el ID del contrato: ");
-        String idContrato = Validador.validarTexto(sc, 1);
+        //String idContrato = Validador.validarTexto(sc, 1);
+        String idContrato = v.validarTexto(sc, 1); // PA
         for (ContratoRenting c : contratos) {
             if (c.getIdContrato().equalsIgnoreCase(idContrato)) {
                 return c;
@@ -169,8 +174,10 @@ public class ContratoService {
     }
 
     public boolean validarDisponibilidad() {
+        Validador v = new Validador(); // PA
         System.out.print("Ingrese la placa del vehículo: ");
-        String placa = Validador.validarTexto(sc, 1);
+        //String placa = Validador.validarTexto(sc, 1);
+        String placa = v.validarTexto(sc, 1); // PA
         for (ContratoRenting c : contratos) {
             if (c.getPlacaVehiculo().equalsIgnoreCase(placa) && "Activo".equalsIgnoreCase(c.getEstado())) {
                 return false;

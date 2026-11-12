@@ -13,6 +13,7 @@ public class MenuPrincipal {
     private VehiculoService vehiculoService;
     private ContratoService contratoService;
     private InformeService informeService;
+    private Validador v = new Validador(); // PA
 
     public MenuPrincipal() {
         this.clienteService = new ClienteService();
@@ -35,7 +36,8 @@ public class MenuPrincipal {
             System.out.println("5. SALIR DEL SISTEMA");
             System.out.println("==============================================");
 
-            int opcion = Validador.validarOpcionMenu(sc);
+            //int opcion = Validador.validarOpcionMenu(sc);
+            int opcion = v.validarOpcionMenu(sc, 1,5);
 
             switch (opcion) {
                 case 1:
