@@ -45,7 +45,7 @@ public class ContratoService {
         }
 
         System.out.println("--- BÚSQUEDA Y ASIGNACIÓN DE CLIENTE ---");
-        Cliente cliente = clienteService.buscarCliente();
+        Cliente cliente = clienteService.buscarCliente(sc); // PA
         if (cliente == null) {
             return "Error: El cliente ingresado no está registrado en el sistema.";
         }
@@ -146,6 +146,17 @@ public class ContratoService {
         }
 
         contrato.setEstado("Finalizado");
+
+        /* 
+        if (vehiculoService != null && vehiculoService.getVehiculo() != null) {
+            for (Vehiculo v : vehiculoService.getVehiculos()) {
+                if (v.getPlaca().equalsIgnoreCase(contrato.getPlacaVehiculo())) {
+                    v.setEstado(Vehiculo.EstadoVehiculo.DISPONIBLE);
+                    break;
+                }
+            }
+        }
+        */
 
         if (vehiculoService != null && vehiculoService.getVehiculo() != null) {
             for (Vehiculo v : vehiculoService.getVehiculos()) {

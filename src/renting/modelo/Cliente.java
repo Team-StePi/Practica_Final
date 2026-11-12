@@ -1,4 +1,5 @@
 package renting.modelo;
+
 public class Cliente {
     private String Cedula;
     private String Nombre;

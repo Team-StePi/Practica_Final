@@ -6,6 +6,7 @@ import renting.servicio.ContratoService;
 import renting.servicio.InformeService;
 import renting.util.Validador;
 import java.util.Scanner;
+import java.util.LinkedList;
 
 public class MenuPrincipal {
     private Scanner sc = new Scanner(System.in);
@@ -66,6 +67,7 @@ public class MenuPrincipal {
     //1. GESTIÓN DE CLIENTES
     public String gestionarClientes() {
         boolean volver = false;
+        Validador val = new Validador();
         while (!volver) {
             System.out.println("\n--- GESTIÓN DE CLIENTES ---");
             System.out.println("1. Registrar cliente");
@@ -74,20 +76,21 @@ public class MenuPrincipal {
             System.out.println("4. Buscar cliente");
             System.out.println("5. Volver al menú principal");
 
-            int opcion = Validador.validarOpcionMenu(sc, 1,5);
+            int opcion = val.validarOpcionMenu(sc, 1,5);
 
             switch (opcion) {
                 case 1:
-                    clienteService.registrarCliente();
+                    clienteService.registrarCliente(sc);
                     break;
                 case 2:
-                    clienteService.modificarCliente();
+                    System.out.println("Funcionalidad de modificar cliente aún no implementada.");
+                    //clienteService.modificarCliente(sc);
                     break;
                 case 3:
-                    clienteService.eliminarCliente();
+                    clienteService.eliminarCliente(sc);
                     break;
                 case 4:
-                    clienteService.buscarCliente();
+                    clienteService.buscarCliente(sc);
                     break;
                 case 5:
                     volver = true;
@@ -101,6 +104,8 @@ public class MenuPrincipal {
 
     //2. GESTIÓN DE VEHÍCULOS
     public String gestionarVehiculos() {
+        Validador val = new Validador();
+
         boolean volver = false;
         while (!volver) {
             System.out.println("\n--- GESTIÓN DE VEHÍCULOS ---");
@@ -110,20 +115,21 @@ public class MenuPrincipal {
             System.out.println("4. Buscar vehículo");
             System.out.println("5. Volver al menú principal");
 
-            int opcion = Validador.validarOpcionMenu(sc, 1, 5);
+            int opcion = val.validarOpcionMenu(sc, 1, 5);
 
             switch (opcion) {
                 case 1:
-                    vehiculoService.registrarVehiculo();
+                    vehiculoService.registrarVehiculo(sc);
                     break;
                 case 2:
-                    vehiculoService.modificarVehiculo();
+                    System.out.println("Funcionalidad de modificar vehículo aún no implementada.");
+                    //vehiculoService.modificarVehiculo(sc);
                     break;
                 case 3:
-                    vehiculoService.eliminarVehiculo();
+                    vehiculoService.eliminarVehiculo(sc);
                     break;
                 case 4:
-                    vehiculoService.buscarVehiculo();
+                    vehiculoService.buscarVehiculo(sc);
                     break;
                 case 5:
                     volver = true;
@@ -138,6 +144,7 @@ public class MenuPrincipal {
     //3. GESTIÓN DE CONTRATOS
     public String gestionarContratos() {
         boolean volver = false;
+        Validador val = new Validador();
         while (!volver) {
             System.out.println("\n--- GESTIÓN DE CONTRATOS DE RENTING ---");
             System.out.println("1. Registrar nuevo contrato");
@@ -146,7 +153,7 @@ public class MenuPrincipal {
             System.out.println("4. Buscar contrato");
             System.out.println("5. Volver al menú principal");
 
-            int opcion = Validador.validarOpcionMenu(sc, 1, 5);
+            int opcion = val.validarOpcionMenu(sc, 1, 5);
 
             switch (opcion) {
                 case 1:

@@ -1,4 +1,6 @@
-public class Vehiculo {
+package renting.modelo;
+
+public abstract class Vehiculo {
     private String Placa;
     private String Marca;
     private int Modelo;
